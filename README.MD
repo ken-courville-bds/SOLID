@@ -49,8 +49,14 @@ computed value and log the operations applied.
 
 ### Iteration 1 Review
 
-1. SRP: violated `Calculator` performs computations and returns results.
-2. OCP: 
+1. SRP: `Calculator` performs computations, formats logs, and appends logs to the console.
+   1. Logging cannot be easily verified via unit testing.
+   1. Log formatting cannot be adjusted without modifying `Calculator`
+2. OCP: `Calculator` cannot be extended without modifying it. To add an operation, the switch statement
+must be extended.  Considering the desire to add more operations, this is a priority fix!
+3. LSP: Polymorphism is not in use... yet.
+4. ISP: Interfaces are not in use... yet.
+5. DIP: No abstractions have been created... yet.
 
 
 ## References
