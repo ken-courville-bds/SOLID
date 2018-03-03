@@ -6,10 +6,17 @@ namespace SOLID.CalculatorTests
 {
     public class CalculatorTest
     {
+        private readonly ICalculator sut;
+
+        public CalculatorTest()
+        {
+            sut = new Calculator();
+        }
         [Fact]
         public void Add()
         {
-            var actual = new Calculator(1)
+            var actual = sut
+                .Input(1)
                 .Input("+", 1)
                 .Result();
             Assert.Equal(2, actual);
@@ -18,7 +25,8 @@ namespace SOLID.CalculatorTests
         [Fact]
         public void Substract()
         {
-            var actual = new Calculator(1)
+            var actual = sut
+                .Input(1)
                 .Input("-", 1)
                 .Result();
             Assert.Equal(0, actual);
@@ -27,7 +35,8 @@ namespace SOLID.CalculatorTests
         [Fact]
         public void Multiply()
         {
-            var actual = new Calculator(1)
+            var actual = sut
+                .Input(1)
                 .Input("*", 2)
                 .Result();
             Assert.Equal(2, actual);
@@ -36,7 +45,8 @@ namespace SOLID.CalculatorTests
         [Fact]
         public void Divide()
         {
-            var actual = new Calculator(2)
+            var actual = sut
+                .Input(2)
                 .Input("/", 2)
                 .Result();
             Assert.Equal(1, actual);
@@ -45,7 +55,8 @@ namespace SOLID.CalculatorTests
         [Fact]
         public void Chaining()
         {
-            var actual = new Calculator(2)
+            var actual = sut
+                .Input(2)
                 .Input("+", 10)
                 .Input("-", 10)
                 .Input("*", 2)

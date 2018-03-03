@@ -3,17 +3,18 @@ using System.Collections.Generic;
 
 namespace SOLID.Math
 {
-    public class Calculator
+    public class Calculator: ICalculator
     {
         private double result;
 
-        public Calculator(double value)
+        public ICalculator Input(double initialValue)
         {
-            result = value;
-            Log("Initial value: {0}", value);
+            result = initialValue;
+            Log("Initial value: {0}", initialValue);
+            return this;
         }
 
-        public Calculator Input(string @operator, double operand)
+        public ICalculator Input(string @operator, double operand)
         {
             if (@operator == null)
             {
