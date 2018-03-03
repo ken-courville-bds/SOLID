@@ -19,14 +19,32 @@ application.
 ### Requirements
 
 Provide a shared library that can perform these mathamatical operations against provided numbers.
-For now, all number parameters and results must be of type `double`. The library must follow
-SOLID principles and be maintainable.
+For now, all number parameters and results must be of type `double`. 
+
+To ensure maintainability, the library must follow
+SOLID principles.  
 
 1. Add: a + b = ?
 2. Substract: a - b = ?
 3. Multiple: a * b = ?
-4. Devide: a / b = ?
+4. Divide: a / b = ?
 5. Power: a ^ b = ?
+
+WARNING: Additional functions will be added to the calculator later!
+
+The library should take an initial value and then have operations applied against it
+with an optional second value. The result should be chainable.  
+
+**Example Usage:**
+
+```csharp
+    var result = new Calculator(4)
+        .Input("+", 4)
+        .Input("+", 2)
+        .Input("SQUARE")
+        .Result();
+    // result = 100
+```
 
 
 ## References
