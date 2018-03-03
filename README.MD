@@ -39,7 +39,7 @@ computed value and log the operations applied.
 **Example Usage:**
 
 ```csharp
-    var calc = factory.GetCalculator();
+    ICalculator calc = factory.GetCalculator();
     var result = calc
         .Input(4)
         .Input("+", 4)
