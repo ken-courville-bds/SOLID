@@ -5,7 +5,7 @@
 
 ## The Principles Summary
 
-* S: Single responsibility principle (SRP). A class should do one thing.
+* S: Single responsibility principle (SRP). A class should do one thing and have only on reason to be changed.
 * O: Open closed principle (OCP). Opened to extension, closed to modification.
 * L: Liskov Substitution principle (LSP). How polymorphism should work.
 * I: Interface segregation Principle (ISP). How interface should be designed.
@@ -33,7 +33,8 @@ SOLID principles.
 WARNING: Additional functions will be added to the calculator later!
 
 The library should take an initial value and then have operations applied against it
-with an optional second value. The result should be chainable.  
+with an optional second value. The result should be chainable.  The response should include the 
+computed value and log the operations applied.
 
 **Example Usage:**
 
@@ -45,6 +46,11 @@ with an optional second value. The result should be chainable.
         .Result();
     // result = 100
 ```
+
+### Iteration 1 Review
+
+1. SRP: violated `Calculator` performs computations and returns results.
+2. OCP: 
 
 
 ## References

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace SOLID.Math
 {
@@ -9,33 +10,46 @@ namespace SOLID.Math
         public Calculator(double value)
         {
             result = value;
+            Log("Initial value: {0}", value);
         }
 
-        public Calculator Input(string op, double value)
+        public Calculator Input(string @operator, double operand)
         {
-            switch (op)
+            if (@operator == null)
+            {
+                throw new ArgumentNullException(nameof(@operator));
+            }
+
+            Log("Applying operation {0}. Value={1}", @operator, operand);
+            switch (@operator)
             {
                 case "+":
-                    result += value;
+                    result += operand;
                     break;
                 case "-":
-                    result -= value;
+                    result -= operand;
                     break;
                 case "*":
-                    result *= value;
+                    result *= operand;
                     break;
                 case "/":
-                    result /= value;
+                    result /= operand;
                     break;
                 default:
-                    throw new NotSupportedException($"Operation not supported: {op}");
+                    throw new NotSupportedException($"Operator not supported: {@operator}");
             }
+            Log("Applying operation {0}. Value={1}", @operator, operand);
             return this;
         }
 
         public double Result()
         {
             return result;
+        }
+
+        private void Log(string format, params object[] args)
+        {
+            Console.WriteLine(format, args);
         }
     }
 }
