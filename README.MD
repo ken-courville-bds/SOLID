@@ -39,7 +39,9 @@ computed value and log the operations applied.
 **Example Usage:**
 
 ```csharp
-    var result = new Calculator(4)
+    var calc = factory.GetCalculator();
+    var result = calc
+        .Input(4)
         .Input("+", 4)
         .Input("+", 2)
         .Input("SQUARE")
