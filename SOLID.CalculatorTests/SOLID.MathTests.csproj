@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SOLID.Calculator\SOLID.Calculator.csproj" />
+    <ProjectReference Include="..\SOLID.Calculator\SOLID.Math.csproj" />
   </ItemGroup>
 
 </Project>

@@ -8,9 +8,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".docs", ".docs", "{F5C87A1A
 		README.MD = README.MD
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOLID.Calculator", "SOLID.Calculator\SOLID.Calculator.csproj", "{9A5059B1-C592-4A9B-BE11-1765D45555A2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SOLID.Math", "SOLID.Calculator\SOLID.Math.csproj", "{9A5059B1-C592-4A9B-BE11-1765D45555A2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOLID.CalculatorTests", "SOLID.CalculatorTests\SOLID.CalculatorTests.csproj", "{09802EAF-8B86-44D3-92DF-CDD46B44F966}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SOLID.MathTests", "SOLID.CalculatorTests\SOLID.MathTests.csproj", "{09802EAF-8B86-44D3-92DF-CDD46B44F966}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
