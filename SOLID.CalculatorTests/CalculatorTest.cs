@@ -53,5 +53,11 @@ namespace SOLID.CalculatorTests
                 .Result();
             Assert.Equal(2, actual);
         }
+
+        [Fact]
+        public void VerifyLogger()
+        {
+            throw new NotImplementedException("Logging cannot be verified! Abstract it!");
+        }
     }
 }
