@@ -1,17 +1,26 @@
+using FakeItEasy;
 using SOLID.Math;
 using System;
 using Xunit;
 
 namespace SOLID.CalculatorTests
 {
-    public class CalculatorTest
+    public class CalculatorTest : IDisposable
     {
+        private readonly ILog fakeLogger;
         private readonly ICalculator sut;
 
         public CalculatorTest()
         {
-            sut = new Calculator();
+            fakeLogger = A.Fake<ILog>();
+            sut = new Calculator(fakeLogger);
         }
+
+        public void Dispose()
+        {
+            EnsureLogged();
+        }
+
         [Fact]
         public void Add()
         {
@@ -65,10 +74,9 @@ namespace SOLID.CalculatorTests
             Assert.Equal(2, actual);
         }
 
-        [Fact]
-        public void VerifyLogger()
+        private void EnsureLogged()
         {
-            throw new NotImplementedException("Logging cannot be verified! Abstract it!");
+            A.CallTo(() => fakeLogger.Append(A<string>.Ignored, A<object[]>.Ignored)).MustHaveHappened();
         }
     }
 }

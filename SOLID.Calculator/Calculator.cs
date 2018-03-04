@@ -6,7 +6,12 @@ namespace SOLID.Math
     public class Calculator: ICalculator
     {
         private double result;
-        private readonly ILog logger = new ConsoleLogger();
+        private readonly ILog logger;
+
+        public Calculator(ILog logger)
+        {
+            this.logger = logger;
+        }
 
         public ICalculator Input(double initialValue)
         {
