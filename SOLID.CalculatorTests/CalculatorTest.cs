@@ -1,5 +1,6 @@
 using FakeItEasy;
 using SOLID.Math;
+using SOLID.Math.Logging;
 using System;
 using Xunit;
 

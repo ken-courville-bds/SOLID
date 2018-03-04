@@ -1,5 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using SOLID.Math.Logging;
+using System;
 
 namespace SOLID.Math
 {

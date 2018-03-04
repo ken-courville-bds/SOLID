@@ -1,4 +1,4 @@
-﻿namespace SOLID.Math
+﻿namespace SOLID.Math.Logging
 {
     public interface ILog
     {

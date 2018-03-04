@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace SOLID.Math
+namespace SOLID.Math.Logging
 {
     public class ConsoleLogger : ILog
     {        
