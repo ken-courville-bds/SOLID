@@ -3,14 +3,14 @@ using System;
 
 namespace SOLID.Math
 {
-    public class Calculator: ICalculator
+    public class Calculator : ICalculator
     {
         private double result;
-        private readonly ILog logger;
+        private readonly ILogService logger;
 
-        public Calculator(ILog logger)
+        public Calculator(LogServiceFactoryDelegate logServiceFactory)
         {
-            this.logger = logger;
+            logger = logServiceFactory(typeof(Calculator).Name);
         }
 
         public ICalculator Input(double initialValue)

@@ -4,8 +4,4 @@
     <TargetFramework>netcoreapp1.1</TargetFramework>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Compile Remove="StringLogger.cs" />
-  </ItemGroup>
-
 </Project>

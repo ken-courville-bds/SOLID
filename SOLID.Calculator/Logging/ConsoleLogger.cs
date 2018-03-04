@@ -2,7 +2,7 @@
 
 namespace SOLID.Math.Logging
 {
-    public class ConsoleLogger : ILog
+    public class ConsoleLogger : ILogService
     {        
         public void Append(string format, params object[] args)
         {

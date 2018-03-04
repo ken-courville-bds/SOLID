@@ -3,81 +3,78 @@ using SOLID.Math;
 using SOLID.Math.Logging;
 using System;
 using Xunit;
+using FluentAssertions;
 
 namespace SOLID.CalculatorTests
 {
     public class CalculatorTest : IDisposable
     {
-        private readonly ILog fakeLogger;
+        private readonly ILogService fakeLogger;        
         private readonly ICalculator sut;
 
         public CalculatorTest()
         {
-            fakeLogger = A.Fake<ILog>();
-            sut = new Calculator(fakeLogger);
+            fakeLogger = A.Fake<ILogService>();
+            sut = new Calculator(name => fakeLogger);
         }
 
         public void Dispose()
         {
-            EnsureLogged();
+            A.CallTo(() => fakeLogger.Append(A<string>.Ignored, A<object[]>.Ignored))
+                .MustHaveHappened();
         }
 
         [Fact]
         public void Add()
         {
-            var actual = sut
+            sut
                 .Input(1)
                 .Input("+", 1)
-                .Result();
-            Assert.Equal(2, actual);
+                .Result()
+                .Should().Be(2);
         }
 
         [Fact]
         public void Substract()
         {
-            var actual = sut
+            sut
                 .Input(1)
                 .Input("-", 1)
-                .Result();
-            Assert.Equal(0, actual);
+                .Result()
+                .Should().Be(0);
         }
 
         [Fact]
         public void Multiply()
         {
-            var actual = sut
+            sut
                 .Input(1)
                 .Input("*", 2)
-                .Result();
-            Assert.Equal(2, actual);
+                .Result()
+                .Should().Be(2);
         }
 
         [Fact]
         public void Divide()
         {
-            var actual = sut
+            sut
                 .Input(2)
                 .Input("/", 2)
-                .Result();
-            Assert.Equal(1, actual);
+                .Result()
+                .Should().Be(1);
         }
 
         [Fact]
         public void Chaining()
         {
-            var actual = sut
+            sut
                 .Input(2)
                 .Input("+", 10)
                 .Input("-", 10)
                 .Input("*", 2)
                 .Input("/", 2)
-                .Result();
-            Assert.Equal(2, actual);
-        }
-
-        private void EnsureLogged()
-        {
-            A.CallTo(() => fakeLogger.Append(A<string>.Ignored, A<object[]>.Ignored)).MustHaveHappened();
+                .Result()
+                .Should().Be(2);
         }
     }
 }
