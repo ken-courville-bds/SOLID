@@ -6,11 +6,12 @@ namespace SOLID.Math
     public class Calculator: ICalculator
     {
         private double result;
+        private readonly ILog logger = new ConsoleLogger();
 
         public ICalculator Input(double initialValue)
         {
             result = initialValue;
-            Log("Initial value: {0}", initialValue);
+            logger.Append("Initial value: {0}", initialValue);
             return this;
         }
 
@@ -21,7 +22,7 @@ namespace SOLID.Math
                 throw new ArgumentNullException(nameof(@operator));
             }
 
-            Log("Applying operation {0}. Value={1}", @operator, operand);
+            logger.Append("Applying operation {0}. Value={1}", @operator, operand);
             switch (@operator)
             {
                 case "+":
@@ -39,18 +40,13 @@ namespace SOLID.Math
                 default:
                     throw new NotSupportedException($"Operator not supported: {@operator}");
             }
-            Log("Applying operation {0}. Value={1}", @operator, operand);
+            logger.Append("Applying operation {0}. Value={1}", @operator, operand);
             return this;
         }
 
         public double Result()
         {
             return result;
-        }
-
-        private void Log(string format, params object[] args)
-        {
-            Console.WriteLine(format, args);
         }
     }
 }
