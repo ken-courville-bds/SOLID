@@ -91,6 +91,16 @@ format cannot be changed without modifying the class.
 3. LSP: Polymorphism is not in use... yet.
 4. ISP: All interfaces a fully used by implementations.
 5. DIP: ILog instance is hard-coded into ConsoleLogger
+
+### Iteration 3 Review
+
+1. SRP: `Calculator` has all computations moved to seperate classes per operator.
+2. OCP: New operators can now be added without modifying `Calculator`. 
+3. LSP: No violations.  All `IComputation` instances fullfil all members of the interface.
+4. DIP: `Calculator` no longer depends on a specific logging implementation.
+5. New logging services needs implementation and unit test.
+6. Should each `IComputation` have its own testing class?
+
 ## References
 
 * [SOLID Design principles with C# practical examples](http://www.dotnetforall.com/solid-design-principles-examples/)
