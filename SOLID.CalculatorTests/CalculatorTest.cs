@@ -4,18 +4,27 @@ using SOLID.Math.Logging;
 using System;
 using Xunit;
 using FluentAssertions;
+using SOLID.Math.Computations;
+using System.Collections.Generic;
 
 namespace SOLID.CalculatorTests
 {
     public class CalculatorTest : IDisposable
     {
-        private readonly ILogService fakeLogger;        
+        private readonly ILogService fakeLogger;
         private readonly ICalculator sut;
 
         public CalculatorTest()
         {
             fakeLogger = A.Fake<ILogService>();
-            sut = new Calculator(name => fakeLogger);
+            var computations = new List<IComputation>()
+            {
+                new AddComputation(),
+                new DivideComputation(),
+                new SubstractComputation(),
+                new MultiplyComputation()
+            };
+            sut = new Calculator(name => fakeLogger, computations);
         }
 
         public void Dispose()
