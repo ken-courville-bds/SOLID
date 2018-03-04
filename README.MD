@@ -5,11 +5,32 @@
 
 ## The Principles Summary
 
-* S: Single responsibility principle (SRP). A class should do one thing and have only on reason to be changed.
-* O: Open closed principle (OCP). Opened to extension, closed to modification.
-* L: Liskov Substitution principle (LSP). How polymorphism should work.
-* I: Interface segregation Principle (ISP). How interface should be designed.
+* S: Single responsibility principle (SRP). 
+  - A class should do one thing and have only one reason to be changed.
+  - Code smells: 
+    * Code file is larger that ~300 lines.
+    * Difficult to unit test the class.
+    * Difficult to identify the purpose of a class.
+    * Recurring code conflicts and/or regressions.
+* O: Open closed principle (OCP). Opened to extension, closed to modification. 
+  - If a class requires extensibility, the class itself should not not have
+to be modified to add new functionality.
+  - Code smells:
+    * Large blocks of `switch` and/or `if` statements that are sometimes repeated within
+the class or a function in the class.    
+* L: Liskov Substitution principle (LSP). An implementation of an abstraction breaks the system.
+    - Code Smells
+      * Receiving `NotSupportedException` in normal system runtime
+      * Checking/Casting to the implementation type to work around issues.
+* I: Interface segregation Principle (ISP). Clients should not depend on methods they do not use.
+  - Code Smells
+    - Fat interface files
+    - Implementations with empty methods/properties put there just to fullfil the interface.
+    - Unnecessary biolerplate/bloated files for implementations.
 * D: Dependency inversion principle (DIP). Describes principle between abstraction and concrete types.
+ - Code Smells
+   - Class is difficult to unit test due to hard-coded dependencies
+   - Dependency cannot be swapped out without modifying the class.
 
 ## Calculator Library
 
@@ -60,7 +81,16 @@ must be extended.  Considering the desire to add more operations, this is a prio
 4. ISP: Interfaces are not in use... yet.
 5. DIP: No abstractions have been created... yet.
 
+### Iteration 2 Review
 
+1. SRP: `Calculator` now only performs computations.  `ConsoleLogger`
+require modification to change the output format as well as output method.
+2. OCP: `Calculator` cannot be extended without modifying it. Based on the size of the dev
+team and desire to add numerous computations, this should be changed. `ConsoleLogger` logging
+format cannot be changed without modifying the class.
+3. LSP: Polymorphism is not in use... yet.
+4. ISP: All interfaces a fully used by implementations.
+5. DIP: ILog instance is hard-coded into ConsoleLogger
 ## References
 
 * [SOLID Design principles with C# practical examples](http://www.dotnetforall.com/solid-design-principles-examples/)
