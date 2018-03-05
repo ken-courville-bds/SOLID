@@ -29,7 +29,7 @@ namespace SOLID.CalculatorTests
 
         public void Dispose()
         {
-            A.CallTo(() => fakeLogger.Append(A<string>.Ignored, A<object[]>.Ignored))
+            A.CallTo(() => fakeLogger.Append(A<LogEntry>.Ignored))
                 .MustHaveHappened();
         }
 

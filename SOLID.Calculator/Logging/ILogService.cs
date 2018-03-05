@@ -2,6 +2,6 @@
 {
     public interface ILogService
     {
-        void Append(string format, params object[] args);
+        void Append(LogEntry entry);
     }
 }

@@ -4,13 +4,8 @@ namespace SOLID.Math.Logging
 {
     public class LogServiceConfig
     {
-        private readonly IEnumerable<ILogAppender> appenders;
-        private readonly IEnumerable<ILogFormatter> formatters;
-
-        public LogServiceConfig(IEnumerable<ILogAppender> appenders, IEnumerable<ILogFormatter> formatters)
-        {
-            this.appenders = appenders;
-            this.formatters = formatters;
-        }
+        public IEnumerable<ILogAppender> Appenders { get; set; }
+        public IEnumerable<ILogPropertyProvider> PropertyProviders { get; set; }
+        public string LogTemplate { get; set; }
     }
 }

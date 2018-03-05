@@ -2,5 +2,6 @@
 {
     public interface ILogAppender
     {
+        void Append(LogEntry entry);
     }
 }
