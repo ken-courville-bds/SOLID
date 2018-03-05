@@ -101,6 +101,15 @@ format cannot be changed without modifying the class.
 5. New logging services needs implementation and unit test.
 6. Should each `IComputation` have its own testing class?
 
+
+### Iteration 4 Review
+
+1. SRP: `LogService` performs log formatting and appending. Consider extracting log formatting.
+2. OCP: `LogService` can be customized by injecting any number of `ILogAppender` and/or `ILogPropertyProvider`
+via `LogServiceConfig`.
+3. LSP: No violations.
+4. DIP: `LogService` template engine cannot be subsituted.  Leaving as is for now.
+
 ## References
 
 * [SOLID Design principles with C# practical examples](http://www.dotnetforall.com/solid-design-principles-examples/)
